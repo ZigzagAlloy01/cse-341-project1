@@ -1,0 +1,28 @@
+GET https://cse-341-project1-ylss.onrender.com/users
+
+GET http://localhost:3000/users
+
+GET http://localhost:3000/users/66f18b2f959979d167124e6f
+
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "email":"lMoreno@test.com",
+    "username":"Moreno",
+    "name":"Laura",
+    "ipaddress":"94.121.168.53"
+}
+
+PUT http://localhost:3000/users/66f18b66959979d167124e71 HTTP/1.1
+content-type: application/json
+
+{
+    "email":"lGonzalez@test.com",
+    "username":"Gonzalez",
+    "name":"Lorena",
+    "ipaddress":"94.121.168.53"
+}
+
+
+
