@@ -5,10 +5,9 @@
     "description": "Users Api",
     "version": "1.0.0"
   },
-  "host": "https://cse-341-project1-ylss.onrender.com",
+  "host": "cse-341-project1-ylss.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
