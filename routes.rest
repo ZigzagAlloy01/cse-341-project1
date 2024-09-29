@@ -2,27 +2,30 @@ GET https://cse-341-project1-ylss.onrender.com/users
 
 GET http://localhost:3000/users
 
-GET http://localhost:3000/users/66f18b2f959979d167124e6f
+GET http://localhost:3000/users/66f8d94b51a9d334f9ebb95d
 
 POST http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
 {
-    "email":"lMoreno@test.com",
-    "username":"Moreno",
-    "name":"Laura",
-    "ipaddress":"94.121.168.53"
+    "firstName": "Jimena",
+    "lastName": "Fernandez",
+    "email": "arodriguez@test.com",
+    "favoriteColor": "Green",
+    "birthday": "07/26/2001"
 }
 
-PUT http://localhost:3000/users/66f18b66959979d167124e71 HTTP/1.1
+PUT http://localhost:3000/users/66f18b2f959979d167124e6f HTTP/1.1
 content-type: application/json
 
 {
-    "email":"lGonzalez@test.com",
-    "username":"Gonzalez",
-    "name":"Lorena",
-    "ipaddress":"94.121.168.53"
+    "firstName": "Iván",
+    "lastName": "Salamanca",
+    "email": "ivanblued@test.com",
+    "favoriteColor": "red",
+    "birthday": "24/11/2000"
 }
 
+DELETE http://localhost:3000/users/66f8e560d724d6be2432b0b6 HTTP/1.1
 
 

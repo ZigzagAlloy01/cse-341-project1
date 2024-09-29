@@ -37,10 +37,11 @@ const createUser = async (req, res) => {
 const updateUser = async (req, res) => {
     const userId = new ObjectId(req.params.id);
     const user = {
-        username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
-        name: req.body.name,
-        ipaddress: req.body.ipaddress
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
     };
     const response = await mongodb.getDatabase().db().collection('users').replaceOne({ _id: userId }, user);
     if (response.modifiedCount > 0) {
@@ -52,8 +53,8 @@ const updateUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
     const userId = new ObjectId(req.params.id);
-    const response = await mongodb.getDatabase().db().collection('users').remove({ _id: userId }, true);
-    if (response.modifiedCount > 0) {
+    const response = await mongodb.getDatabase().db().collection('users').deleteOne({ _id: userId });
+    if (response.deletedCount > 0) {
         res.status(204).send();
     } else {
         res.status(500).json(response.error || 'Some error occurred while deleting the user.');
