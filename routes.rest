@@ -1,6 +1,6 @@
 GET https://cse-341-project1-ylss.onrender.com/users
 
-GET http://localhost:3000/users
+GET http://localhost:3000/companies
 
 GET http://localhost:3000/users/66f8d94b51a9d334f9ebb95d
 

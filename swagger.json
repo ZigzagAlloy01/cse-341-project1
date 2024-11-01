@@ -5,25 +5,15 @@
     "description": "Users Api",
     "version": "1.0.0"
   },
-  "host": "cse-341-project1-ylss.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/companies/": {
       "get": {
-        "description": "",
+        "description": "Retrieve a list of companies",
         "produces": [
           "application/json"
         ],
@@ -34,7 +24,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Add a new company",
         "parameters": [
           {
             "name": "body",
@@ -42,10 +32,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": { "example": "any" },
-                "email": { "example": "any" },
-                "company": { "example": "any" }
-              }
+                "name": { "type": "string", "example": "Tech Solutions Ltd" },
+                "industry": { "type": "string", "example": "Software Development" },
+                "location": { "type": "string", "example": "San Francisco, CA" },
+                "foundedYear": { "type": "integer", "example": 2008 },
+                "website": { "type": "string", "example": "https://techsolutions.com" },
+                "programmerIds": { "type": "array", "items": { "type": "string" } },
+                "size": { "type": "integer", "example": 150 },
+                "description": { "type": "string", "example": "A leading company in custom software development." }
+              },
+              "required": ["name", "industry", "location", "foundedYear", "website", "programmerIds", "size", "description"]
             }
           }
         ],
@@ -61,10 +57,7 @@
     },
     "/companies/{id}": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "description": "Retrieve a specific company",
         "parameters": [
           {
             "name": "id",
@@ -80,7 +73,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update an existing company",
         "parameters": [
           {
             "name": "id",
@@ -94,10 +87,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": { "example": "any" },
-                "email": { "example": "any" },
-                "company": { "example": "any" }
-              }
+                "name": { "type": "string", "example": "Tech Solutions Ltd" },
+                "industry": { "type": "string", "example": "Software Development" },
+                "location": { "type": "string", "example": "San Francisco, CA" },
+                "foundedYear": { "type": "integer", "example": 2008 },
+                "website": { "type": "string", "example": "https://techsolutions.com" },
+                "programmerIds": { "type": "array", "items": { "type": "string" } },
+                "size": { "type": "integer", "example": 150 },
+                "description": { "type": "string", "example": "A leading company in custom software development." }
+              },
+              "required": ["name", "industry", "location", "foundedYear", "website", "programmerIds", "size", "description"]
             }
           }
         ],
@@ -111,7 +110,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete a company",
         "parameters": [
           {
             "name": "id",
@@ -151,10 +150,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": { "example": "John Doe" },
-                "language": { "example": "JavaScript" },
-                "experience": { "example": "5 years" }
-              }
+                "name": { "type": "string", "example": "John Doe" },
+                "email": { "type": "string", "example": "john.doe@example.com" },
+                "skills": { "type": "array", "items": { "type": "string" }, "example": ["JavaScript", "React"] },
+                "experienceYears": { "type": "integer", "example": 5 },
+                "companyId": { "type": "string", "example": "6723056ae5ba473149a4f0d8" },
+                "profilePicture": { "type": "string", "example": "https://example.com/profile.jpg" },
+                "linkedIn": { "type": "string", "example": "https://linkedin.com/in/johndoe" },
+                "github": { "type": "string", "example": "https://github.com/johndoe" }
+              },
+              "required": ["name", "email", "skills", "experienceYears"]
             }
           }
         ],
@@ -200,10 +205,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": { "example": "John Doe" },
-                "language": { "example": "Python" },
-                "experience": { "example": "6 years" }
-              }
+                "name": { "type": "string", "example": "John Doe" },
+                "email": { "type": "string", "example": "john.doe@example.com" },
+                "skills": { "type": "array", "items": { "type": "string" }, "example": ["JavaScript", "React"] },
+                "experienceYears": { "type": "integer", "example": 6 },
+                "companyId": { "type": "string", "example": "6723056ae5ba473149a4f0d8" },
+                "profilePicture": { "type": "string", "example": "https://example.com/profile.jpg" },
+                "linkedIn": { "type": "string", "example": "https://linkedin.com/in/johndoe" },
+                "github": { "type": "string", "example": "https://github.com/johndoe" }
+              },
+              "required": ["name", "email", "skills", "experienceYears"]
             }
           }
         ],
@@ -257,10 +268,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": { "example": "Project X" },
-                "description": { "example": "An AI project" },
-                "budget": { "example": "5000 USD" }
-              }
+                "title": { "type": "string", "example": "Project X" },
+                "description": { "type": "string", "example": "An AI project" },
+                "technologies": { "type": "array", "items": { "type": "string" }, "example": ["Python", "TensorFlow"] },
+                "programmerIds": { "type": "array", "items": { "type": "string" }, "example": ["6723056ae5ba473149a4f0d8", "6723056ae5ba473149a4f0d9"] },
+                "companyId": { "type": "string", "example": "6723056ae5ba473149a4f0d8" },
+                "startDate": { "type": "string", "format": "date", "example": "2024-01-01" },
+                "endDate": { "type": "string", "format": "date", "example": "2024-12-31" },
+                "status": { "type": "string", "example": "in progress" }
+              },
+              "required": ["title", "description", "technologies", "programmerIds", "companyId", "startDate", "endDate", "status"]
             }
           }
         ],
@@ -306,10 +323,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": { "example": "Updated Project X" },
-                "description": { "example": "A revised AI project" },
-                "budget": { "example": "6000 USD" }
-              }
+                "title": { "type": "string", "example": "Updated Project X" },
+                "description": { "type": "string", "example": "A revised AI project" },
+                "technologies": { "type": "array", "items": { "type": "string" }, "example": ["JavaScript", "Node.js"] },
+                "programmerIds": { "type": "array", "items": { "type": "string" }, "example": ["6723056ae5ba473149a4f0d8", "6723056ae5ba473149a4f0d9"] },
+                "companyId": { "type": "string", "example": "6723056ae5ba473149a4f0d8" },
+                "startDate": { "type": "string", "format": "date", "example": "2024-01-01" },
+                "endDate": { "type": "string", "format": "date", "example": "2024-12-31" },
+                "status": { "type": "string", "example": "completed" }
+              },
+              "required": ["title", "description", "technologies", "programmerIds", "companyId", "startDate", "endDate", "status"]
             }
           }
         ],
@@ -363,10 +386,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "author": { "example": "Jane Doe" },
-                "rating": { "example": 5 },
-                "comment": { "example": "Excellent!" }
-              }
+                "programmerId": { "type": "string", "example": "6723056ae5ba473149a4f0d8" },
+                "companyId": { "type": "string", "example": "6723056ae5ba473149a4f0d8" },
+                "projectId": { "type": "string", "example": "6723056ae5ba473149a4f0d9" },
+                "date": { "type": "string", "format": "date", "example": "2024-10-01" },
+                "feedback": { "type": "string", "example": "Great work!" },
+                "rating": { "type": "integer", "example": 5 },
+                "reviewer": { "type": "string", "example": "Alice" },
+                "position": { "type": "string", "example": "Project Manager" }
+              },
+              "required": ["programmerId", "companyId", "projectId", "date", "feedback", "rating", "reviewer", "position"]
             }
           }
         ],
@@ -412,10 +441,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "author": { "example": "Jane Doe" },
-                "rating": { "example": 4 },
-                "comment": { "example": "Very good, with minor issues." }
-              }
+                "programmerId": { "type": "string", "example": "6723056ae5ba473149a4f0d8" },
+                "companyId": { "type": "string", "example": "6723056ae5ba473149a4f0d8" },
+                "projectId": { "type": "string", "example": "6723056ae5ba473149a4f0d9" },
+                "date": { "type": "string", "format": "date", "example": "2024-10-01" },
+                "feedback": { "type": "string", "example": "Great work!" },
+                "rating": { "type": "integer", "example": 4 },
+                "reviewer": { "type": "string", "example": "Alice" },
+                "position": { "type": "string", "example": "Senior Developer" }
+              },
+              "required": ["programmerId", "companyId", "projectId", "date", "feedback", "rating", "reviewer", "position"]
             }
           }
         ],
